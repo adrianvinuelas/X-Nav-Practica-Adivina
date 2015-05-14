@@ -350,7 +350,7 @@ function empezarpartida(njug,ndif){
 	inicializarmapa= true;
 	
 
-	$.getJSON("X-Nav-Practica-Adivina/juegos/"+namegame+".json",function(data){
+	$.getJSON("http://adrianvinuelas.github.io/X-Nav-Practica-Adivina/juegos/"+namegame+".json",function(data){
 		//console.log("estoy dentro del json");
 		var enigma = data.features[Math.round(Math.random() * 10)];
 		latitud = enigma.coordinates[0];
