@@ -133,7 +133,7 @@ function inicio(){
 		window.clearInterval(intervalo)
 		console.log("cerrado el intervalo")
 	}
-	window.history.pushState({}, "ADIVINAgame", "/inicio");
+	window.history.pushState({}, "ADIVINAgame", "X-Nav-Practica-Adivina/inicio");
 	juegosjugados();
 	
 
@@ -150,7 +150,7 @@ function ayuda(){
 	$("#myCarousel").hide();
 	$("#juegosjugados1").show();
 	$("#ayuda").show();
-	window.history.pushState({}, "ADIVINAgame", "/ayuda");
+	window.history.pushState({}, "ADIVINAgame", "X-Nav-Practica-Adivina/ayuda");
 	juegosjugados();
 }
 
@@ -232,7 +232,7 @@ function jugar(){
 		});
 	}
 	$("#barraprogreso").css( "width", "0%" );
-	window.history.pushState({}, "ADIVINAgame", "/jugar");
+	window.history.pushState({}, "ADIVINAgame", "X-Nav-Practica-Adivina/jugar");
 	juegosjugados();
 	
 }
@@ -300,7 +300,7 @@ function onMapClick(e) {
 	}
 	//crear el objeto para que se inicialice a null
 	var obj = {namegame: namegame, difstring: difstring, puntos: puntos}
-	window.history.pushState(obj, "ADIVINAgame", "/"+namegame+difstring);
+	window.history.pushState(obj, "ADIVINAgame", "X-Nav-Practica-Adivina/"+namegame+difstring);
 }	//acordarme de que cambie el guardar partida para que funcione con el servidor
 
 function empezarpartida(njug,ndif){
@@ -315,7 +315,7 @@ function empezarpartida(njug,ndif){
 		console.log("cerrado el intervalo")
 	}
 	if(!go){//si esta a true es que he vuelto a atrás en el historial
-		window.history.pushState({}, "ADIVINAgame", "/"+namegame+difstring);
+		window.history.pushState({}, "ADIVINAgame", "X-Nav-Practica-Adivina/"+namegame+difstring);
 	}
 	//console.log("QUE EMPIECE LA PARTIDA!")
 	numimagenes = 0;
@@ -350,7 +350,7 @@ function empezarpartida(njug,ndif){
 	inicializarmapa= true;
 	
 
-	$.getJSON("juegos/"+namegame+".json",function(data){
+	$.getJSON("X-Nav-Practica-Adivina/juegos/"+namegame+".json",function(data){
 		//console.log("estoy dentro del json");
 		var enigma = data.features[Math.round(Math.random() * 10)];
 		latitud = enigma.coordinates[0];
