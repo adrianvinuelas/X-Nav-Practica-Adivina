@@ -1,0 +1,51 @@
+{ "type": "FeatureCollection",
+    "features": [
+      { "type": "Feature",
+        "properties": {"name": "Madrid"},
+        "coordinates": [40.433333, -3.683333]
+        },
+      { "type": "Feature",
+        "properties": {"name": "Paris"},
+        "coordinates": [48.866667, 2.333056]
+        },
+      {
+        "type": "Feature",
+        "properties": {"name": "Roma"},
+        "coordinates": [41.9, 12.5]
+        },
+      { "type": "Feature",
+        "properties": {"name": "Londres"},
+        "coordinates": [51.507222, -0.1275]
+        },
+      { "type": "Feature",
+        "properties": {"name": "Buenos Aires"},
+        "coordinates": [-34.599722, -58.381944]
+        },
+      { "type": "Feature",
+        "properties": {"name": "Washington D. C."},
+        "coordinates": [38.895, -77.036667]
+        },
+      {
+        "type": "Feature",
+        "properties": {"name": "Tokio"},
+        "coordinates": [35.683889, 139.774444]
+        },
+      { "type": "Feature",
+        "properties": {"name": "Pekín"},
+        "coordinates": [39.905, 116.391389]
+        },
+      {
+        "type": "Feature",
+        "properties": {"name": "Brasilia"},
+        "coordinates": [-15.793889, -47.882778]
+        },
+      { "type": "Feature",
+        "properties": {"name": "Ottawa"},
+        "coordinates": [45.416667, -75.7]
+        },
+      { "type": "Feature",
+        "properties": {"name": "Berlín"},
+        "coordinates": [52.516667, 13.383333]
+        }
+       ]
+}
