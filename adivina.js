@@ -29,13 +29,11 @@ window.onpopstate = function(event) {
 	if(!go){
 		if(event.state != null){
 			if(JSON.stringify(event.state.namegame) != undefined){
-				//solo se añaden 4 como mucho mas la nueva 5 en ese momento pero luego solo 4 o 5
-			//segun lo quiera yo, volver a hacer esta función con cambios
-				console.log("añado juego " + JSON.stringify(event.state.namegame) + ", nivel : "+ JSON.stringify(event.state.difstring))
-				console.log("numgo = " + numgo)
-				console.log("numjuegosanadidos = " + numjuegosanadidos)
+				//console.log("añado juego " + JSON.stringify(event.state.namegame) + ", nivel : "+ JSON.stringify(event.state.difstring))
+				//console.log("numgo = " + numgo)
+				//console.log("numjuegosanadidos = " + numjuegosanadidos)
 				if(numjuegosanadidos < 5){
-					console.log("añado juego a la lista");
+					//console.log("añado juego a la lista");
 					juegos+= "<li onclick='volverjugar("+numgo+");empezarpartida("+JSON.stringify(event.state.namegame)+
 							","+JSON.stringify(event.state.difstring) +");'>juego : " 
 							+ JSON.stringify(event.state.namegame) + ", nivel : " 
@@ -56,11 +54,11 @@ function juegosjugados(){
 	numjuegosanadidos = 0;
 	numanterior = 0;
 	numberOfEntries = window.history.length;
-	console.log("numberOfEntries juegojugados = " + numberOfEntries);
+	//console.log("numberOfEntries juegojugados = " + numberOfEntries);
 	if(numberOfEntries>1){
 		for(i=1; i<numberOfEntries;i++){
 			numgo= -(i);
-			console.log("history.back -" + i);
+			//console.log("history.back -" + i);
    			window.history.back();
    			//console.log("numero de entradas despues de back = " +window.history.length)
    		}
@@ -76,13 +74,13 @@ function volverjugar(num){
 	numjuegosanadidos = 0;
 	//le paso el num del que tengo que hacer go ->go(-3)
 	if(num>0){//si me llaman despues de retroceder con un go hacia adelante
-		console.log("go hacia adelante despues de haber vuelto a atrás!!!!!!!!!!!!!!")
+		//console.log("go hacia adelante despues de haber vuelto a atrás!!!!!!!!!!!!!!")
 		window.history.go(ibapor);//vuelvo al pincipio del historial para recalcular
-		console.log("historylengh antes de cambiar = " + window.history.length)
-		console.log("num antes de cambiar = " + num);
-		console.log("numanterior antes de cambiar = " + numanterior);
+		//console.log("historylengh antes de cambiar = " + window.history.length)
+		//console.log("num antes de cambiar = " + num);
+		//console.log("numanterior antes de cambiar = " + numanterior);
 		num = numanterior + num;//(-(4) + 2) por ejemplo
-		console.log("num despues de cambiar = " + num);
+		//console.log("num despues de cambiar = " + num);
 	}else if(num<0 && numanterior !=0 ){//si me llaman despues de retroceder,para que retroceda(recalculo)
 		window.history.go(ibapor);//vuelvo al principio del historial para recalcular
 		num = numanterior + num;//(-4 + (-1)) por ejemplo
@@ -90,19 +88,19 @@ function volverjugar(num){
 	go = false;//para añadir partidas si las hay
 	numberOfEntries = window.history.length;
 	juegos ="<p><ul>";
-	console.log("numberOfEntries = " + numberOfEntries);
+	//console.log("numberOfEntries = " + numberOfEntries);
 	if(numberOfEntries>1){
 		for(i=1; i<numberOfEntries;i++){
 			if(i< -(num)){
 				numgo = -(num) - i;// -(-3)-1 = 2 por ejemplo
 			}else if(i> -(num)){
 				numgo = -(i+num); //-(5+(-3)) = -2
-				console.log("entro a numgo = " + numgo);
+				//console.log("entro a numgo = " + numgo);
 			}else if(i = -(num)){
 				numgo = 0;
 			}
    			window.history.back();
-   			console.log("history.back " + -(i));
+   			//console.log("history.back " + -(i));
    			//console.log("numero de entradas despues de back = " +window.history.length)
    		}
    		go=true;
@@ -131,7 +129,7 @@ function inicio(){
 	if(hayintervalo){
 		hayintervalo=false;
 		window.clearInterval(intervalo)
-		console.log("cerrado el intervalo")
+		//console.log("cerrado el intervalo")
 	}
 	window.history.pushState({}, "ADIVINAgame", "inicio");
 	juegosjugados();
@@ -241,7 +239,7 @@ function onMapClick(e) {
 	if(hayintervalo){
 		hayintervalo=false;
 		window.clearInterval(intervalo)
-		console.log("cerrado el intervalo")
+		//console.log("cerrado el intervalo")
 	}
 	var R = 6371.0;//Radio de la Tierra para calcular la distancia
 	var diflat = ((latitud - e.latlng.lat) * Math.PI) /180;
@@ -289,14 +287,14 @@ function onMapClick(e) {
 	$('#fotos').html("");
 	anadejuego = true;
 	if(go){
-		console.log("vuelvo a por donde iba")
+		//console.log("vuelvo a por donde iba")
 		window.history.go(ibapor);
 		go=false;
 	}
 	if(hayintervalo){
 		hayintervalo=false;
 		window.clearInterval(intervalo)
-		console.log("cerrado el intervalo")
+		//console.log("cerrado el intervalo")
 	}
 	//crear el objeto para que se inicialice a null
 	var obj = {namegame: namegame, difstring: difstring, puntos: puntos}
@@ -312,7 +310,7 @@ function empezarpartida(njug,ndif){
 		hayintervalo=false;
 		window.clearInterval(intervalo)
 		$('#fotos').html("");
-		console.log("cerrado el intervalo")
+		//console.log("cerrado el intervalo")
 	}
 	if(!go){//si esta a true es que he vuelto a atrás en el historial
 		window.history.pushState({}, "ADIVINAgame", namegame+difstring);
@@ -364,14 +362,20 @@ function empezarpartida(njug,ndif){
 	          format: "json"
         	},	function(data){
         		var num=0;
+        		//console.log("data.items.length = " + data.items.length);
         		intervalo = setInterval(function(){
         			hayintervalo = true;
-        			console.log("se ejecuta el intervalo");
+        			//console.log("se ejecuta el intervalo");
         			var imagen = "<img src="+ data.items[num].media.m
         				+" style='width: 100%; height: 360px;'>";
         				$('#fotos').html(imagen);
-        				num++;
-        				numimagenes++;
+        				console.log("num = " + num);
+        				if(num == data.items.length - 1){//si es la ultima foto vuelvo a la primera
+        					num = 0;
+        				}else{//si no sigo cogiendo la siguiente foto
+        					num++;
+        				}
+        				numimagenes++;//numero de imagenes que se van mostrando
         		}, dif*1000);
 	           
     	});
@@ -379,7 +383,7 @@ function empezarpartida(njug,ndif){
 }
 
 jQuery(document).ready(function() {
-	console.log("dom cargado modificado");
+	//console.log("dom cargado modificado 1");
 	$("#partida").hide();
 	$("#selec-juego").hide();
 	$("#resultado").hide();
@@ -391,8 +395,4 @@ jQuery(document).ready(function() {
 	$(".ayuda").click(ayuda);
 	$(".contacto").click(inicio);
    	juegosjugados();
-	/*window.onpopstate = function(event) {
-		  alert("location: " + document.location + ", state: " + JSON.stringify(event.state) +", title: " + JSON.stringify(event.title));
-	};
-	//$("#juegosjugados").html(juegos);*/
 });
