@@ -103,7 +103,7 @@ function volverjugar(num){
    			//console.log("history.back " + -(i));
    			//console.log("numero de entradas despues de back = " +window.history.length)
    		}
-   		go=true;
+   		go=true;//variable para indicar que no estoy en la ultima entrada si esta a true
    		//console.log("numero total = " + numberOfEntries);
    		//console.log("numero que retroceso = " +  num);
    		ibapor =  -num; //-(-3) para hacer un go(3) despues de jugar
@@ -231,6 +231,11 @@ function jugar(){
 	}
 	$("#barraprogreso").css( "width", "0%" );
 	window.history.pushState({}, "ADIVINAgame", "jugar");
+	if(go){
+		//console.log("vuelvo a por donde iba")
+		window.history.go(ibapor);
+		go=false;
+	}
 	juegosjugados();
 	
 }
