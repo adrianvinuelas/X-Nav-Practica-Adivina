@@ -262,6 +262,13 @@ function empezarpartida(njug,ndif){
 	if(ndif != undefined){
 		namegame=njug;
 		difstring = ndif;
+		if(difstring=="FÁCIL"){
+			dif=5;
+		}else if(difstring=="MEDIO"){
+			dif=3;
+		}else if(difstring=="DIFÍCIL"){
+			dif=1;
+		}
 	}
 	if(hayintervalo){
 		hayintervalo=false;
