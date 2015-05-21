@@ -25,7 +25,7 @@ Detalles del enunciado en el programa de la asignatura.
 
   He implementado la parte en la que la aplicación es una Open Web App, funcionando en
   Firefox OS.Para ello he implementado el manifest.webapp y lo he probado en el simulador 
-  de firefox (en el video queda demostrado) .
+  de firefox (en el vídeo queda demostrado) .
 
 ·URL del vídeo demostración de la funcionalidad básica: https://youtu.be/p3rYD5gWST4
 
